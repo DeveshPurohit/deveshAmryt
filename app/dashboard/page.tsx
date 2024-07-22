@@ -48,7 +48,11 @@ const Dashboard = () => {
     firstname: "",
     lastname: "",
     age: "",
-    country: ""
+    gender: "",
+    hobbies: "",
+    country: "",
+    state: "",
+    city: "",
   });
 
   useEffect(() => {
@@ -60,7 +64,7 @@ const Dashboard = () => {
   }, []);
   return (
     <div className="chart-wrapper mx-auto flex max-w-7xl flex-col flex-wrap items-start justify-center gap-6 p-6 sm:flex-row sm:p-8">
-      <div className="grid w-full flex-1 gap-6">
+      <div className="grid w-full flex-2 gap-6">
         <Table className="border shadow-md">
           <TableCaption>{data ? 'Recent created profile.' : 'Create profile to see entry.'}</TableCaption>
           <TableHeader>
@@ -68,7 +72,11 @@ const Dashboard = () => {
               <TableHead className="w-[100px]">Firstname</TableHead>
               <TableHead>Lastname</TableHead>
               <TableHead>Age</TableHead>
-              <TableHead className="text-right">Country</TableHead>
+              <TableHead>Gender</TableHead>
+              <TableHead>Hobbies</TableHead>
+              <TableHead>Country</TableHead>
+              <TableHead>State</TableHead>
+              <TableHead>City</TableHead>
             </TableRow>
           </TableHeader>
           {data && <TableBody>
@@ -76,12 +84,16 @@ const Dashboard = () => {
               <TableCell className="font-medium">{data.firstname}</TableCell>
               <TableCell>{data.lastname}</TableCell>
               <TableCell>{data.age}</TableCell>
-              <TableCell className="text-right">{data.country}</TableCell>
+              <TableCell>{data.gender.toUpperCase()}</TableCell>
+              <TableCell>{data.hobbies ? data.hobbies : 'NA'}</TableCell>
+              <TableCell>{data.country}</TableCell>
+              <TableCell>{data.state}</TableCell>
+              <TableCell>{data.city}</TableCell>
             </TableRow>
           </TableBody>}
         </Table>
       </div>
-      <div className="grid w-full gap-6 sm:grid-cols-2 lg:max-w-[22rem] lg:grid-cols-1 xl:max-w-[25rem]">
+      <div className="grid w-full gap-6 grid-cols-2 max-sm:grid-cols-1">
         <Card className="lg:max-w-md shadow-md" x-chunk="charts-01-chunk-0">
           <CardHeader className="space-y-0 pb-2">
             <CardDescription>Today</CardDescription>
@@ -328,7 +340,7 @@ const Dashboard = () => {
           </CardContent>
         </Card>
       </div>
-      <div className="grid w-full flex-1 gap-6">
+      <div className="grid w-full sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2">
         <Card className="max-w-xs shadow-md" x-chunk="charts-01-chunk-5">
           <CardContent className="flex gap-4 p-4">
             <div className="grid items-center gap-2">
