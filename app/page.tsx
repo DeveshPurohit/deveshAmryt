@@ -1,14 +1,18 @@
 import Image from "next/image";
+import { currentUser } from '@clerk/nextjs/server';
 
 
-export default function Home() {
+export default async function Home() {
+  const user = await currentUser();
+
   return (
     <main className="flex-grow items-center justify-center flex-col mx-auto container px-10 py-10 text-center">
       <Image className="mb-7 w-full h-[270px] md:h-[350px]" src={'/landing.avif'} height={200} width={500} alt="Landing page"/>
         <section id="hero" className="mb-16">
           <h2 className="text-4xl font-bold mb-4">Grow Your Business with My Digital Services</h2>
           <p className="mb-8">We provide the best digital Ai-based solutions to help you reach your goals.</p>
-          <a href="/" className="bg-blue-600 text-white py-2 px-4 rounded-lg">Get Started</a>
+          {!user ? <a href="/" className="bg-blue-600 text-white py-2 px-4 rounded-lg">Get Started</a>
+           : <a href="/dashboard" className="bg-blue-600 text-white py-2 px-4 rounded-lg">Go to dashboard</a>}
         </section>
 
         <section id="services" className="mb-16">
