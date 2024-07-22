@@ -5,6 +5,9 @@
 .cl-internal-180wb59{
   display: none;  
 }
+.cl-userButtonPopoverFooter{
+  display: none;  
+}
 
 @layer base {
   :root {

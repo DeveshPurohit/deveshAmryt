@@ -23,10 +23,10 @@ export const Header = () => {
             Login
           </Link>
         </div> : <Link
-            href={"/dashboard"}
+            href={"/"}
             className="hover:bg-slate-700 py-2 px-3 cursor-pointer rounded-full"
           >
-            Dashboard
+            Devesh&apos;s demo
           </Link>}
       </header>
       ) : (<>
